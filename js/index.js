@@ -1,7 +1,12 @@
-// DOM CONTROLLER
+// GAME-DOM CONTROLLER
 const gameDOMController = (function () {
     
     const gameScreenDom = document.getElementById('game-screen');
+    const gameMenuDOM = document.getElementById('game-menu');
+    const gameUpButton = document.getElementById('game-up-button');
+    const gameDownButton = document.getElementById('game-down-button');
+    const gameRightButton = document.getElementById('game-right-button');
+    const gameLeftButton = document.getElementById('game-left-button');
 
     const cellDOMId = function (i, j)
     {
@@ -11,8 +16,12 @@ const gameDOMController = (function () {
     return {
         getDOMElements: function() {
             return {
-                gameMenuDOM: document.getElementById('game-menu')
-            }
+                gameMenuDOM,
+                gameUpButton,
+                gameDownButton,
+                gameRightButton,
+                gameLeftButton
+            };
         },
         colorCell: function(cell) {
             
@@ -54,8 +63,22 @@ const gameDOMController = (function () {
             }
         
             return;
+        },
+        addGameMenuListeners: function () {
+            gameMenuDOM.addEventListener('keydown', function (event) {
+                const pressedKey = event.key;
+                gameController.setDirection(pressedKey);
+                return;
+            });
+
+            gameUpButton.addEventListener('click', () => gameController.setDirection("ArrowUp"));
+            gameDownButton.addEventListener('click', () => gameController.setDirection("ArrowDown"));
+            gameLeftButton.addEventListener('click', () => gameController.setDirection("ArrowLeft"));
+            gameRightButton.addEventListener('click', () => gameController.setDirection("ArrowRight"));
+
+            return;
         }
-    }
+    };
 })();
 
 // GAME CONTROLLER
@@ -76,9 +99,6 @@ const gameController = (function () {
     const head = {}, tail = {};
 
     let moveSnakeInterval, cnt = 0;
-
-    // DOMs
-    const DOMElements = gameDOMController.getDOMElements();
     
     // METHODS
     const createSnake = function() {
@@ -148,20 +168,20 @@ const gameController = (function () {
         tail.y = snake[0].y;
         // 3. Uncoloring Cell
         // -> Done at 1 ; gameDOMController.uncolorCell();
-    };
+    };    
 
-    const addGameMenuListeners = function () {
-        DOMElements.gameMenuDOM.addEventListener('keydown', function (event) {
-            
-            console.log(event);
-
-            const pressedKey = event.key;
+    return {
+        getDirection: function() {
+            return direction;
+        },
+        setDirection: function(pressedKey) {
             let newDirection;
-
+    
             switch(pressedKey)
             {
                 case "ArrowUp":
                     newDirection = UP;
+                    // DOMElements.gameUpButton.style.backgroundColor = 'white';
                     break;
                 case "ArrowDown":
                     newDirection = DOWN;
@@ -175,7 +195,8 @@ const gameController = (function () {
                 default:
                     return;
             }
-
+    
+            // Giving New Direction
             if(newDirection == LEFT || newDirection == RIGHT)
                 if(direction != LEFT && direction != RIGHT)
                     direction = newDirection;
@@ -183,12 +204,9 @@ const gameController = (function () {
             if(newDirection == UP || newDirection == DOWN)
                 if(direction != UP && direction != DOWN)
                     direction = newDirection;
-
+            
             return;
-        });
-    };
-
-    return {
+        },
         init: function () {
             console.log('Initializing game...');
 
@@ -201,11 +219,11 @@ const gameController = (function () {
             moveSnakeInterval = setInterval(moveSnake, snakeSpeed);
             // console.log(moveSnakeInterval); // interger value (2)
 
-            addGameMenuListeners();
+            gameDOMController.addGameMenuListeners();
 
             console.log('Ready to play!');
         }
-    }
+    };
 })();
 
 gameController.init();
