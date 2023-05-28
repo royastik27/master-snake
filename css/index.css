@@ -3,14 +3,13 @@
 }
 
 #game-screen {
-    float: left;
     display: table;
     border: 2px solid black;
+    padding: 0 0;
 }
 
 .game-row {
     display: table-row;
-    /* clear: both; */
 }
 
 .game-col {
@@ -20,10 +19,31 @@
     border: 1px solid black;
 }
 
+/*
+
 #game-menu {
-    float: left;
     margin-top: 1rem;
-    margin-left: 1rem;
     padding: 1rem;
     border: 2px dotted green;
 }
+
+#game-init-menu {
+    float: left;
+}
+
+#game-menu button {
+    display: flex;
+}
+
+#game-up-button, #game-down-button {
+    margin: 0 auto;
+}
+
+#game-left-right-button {
+    display: flex;
+    margin: 1rem 0;
+}
+
+#game-left-button {
+    margin-right: 2rem;
+} */

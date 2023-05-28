@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.no-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+body {
+    background-color: #E5E5E5;
+}
+
+#game-area {
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 1.2rem;
+    background-color: white;
+}
+
+#game-section {
+    display: table;
+    margin: 1rem auto;
+    /* border: 10px solid blue; */
+}
+
+#game-screen {
+    width: 60%;
+    float: left;
+    margin-right: 1rem;
+    background-color: #6C4B4B;
+    border: 1px solid black;
+}
+
+#game-menu {
+    width: 35%;
+    float: right;
+    /* border: 5px dotted green; */
+}
+
+#game-init-menu, #game-controller-menu {
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    border-radius: 1rem;
+}
+
+#game-init-menu {
+    display: flex;
+    justify-content: center;
+    background-color: yellowgreen;
+}
+
+#game-init-menu button {
+    margin: 0rem 0.5rem;
+}
+
+#game-controller-menu {
+    background-color: dodgerblue;
+}
+
+#game-controller-menu .d-flex {
+    justify-content: center;
+}
+
+#game-controller-menu .left-right {
+    justify-content: space-around;
+}
+
+/* ADD MEDIA QUERY */

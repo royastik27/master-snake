@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    <title>🐍 MASTER SNAKE</title>
+    <title>MASTER SNAKE</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/index.css" type="text/css">    
@@ -15,22 +15,41 @@
     <div class="container-fluid">
         <div class="row">
             
-            <!-- START OF CANVAS -->
             <div class="col-8 mx-auto my-5">
-                <h2><i>MASTER-SNAKE</i></h2>
-                
-                <div id="game-screen">
-                </div>
 
-                <div id="game-menu">
-                    <button id="game-up-button">UP</button>
-                    <button id="game-left-button">LEFT</button>
-                    <button id="game-right-button">RIGHT</button>
-                    <button id="game-down-button">DOWN</button>
-                </div>
+                <!-- START OF CANVAS -->
+                <div id="game-area" class="row">
+                    <h2><i>MASTER-SNAKE</i></h2>
                     
-            </>
-            <!-- END OF CANVAS -->
+                    <div id="game-screen" class="col-md-7">
+                    </div>
+    
+                    <div id="game-menu">
+    
+                        <div id="game-init-menu" class="col-2">
+                            <button id="game-start-button">Start</button>
+                            <button id="game-pause-button">Pause</button>
+                            <button id="game-end-button">End</button>
+                        </div>
+    
+                        <div id="game-control-menu">
+                            <div>
+                                <button id="game-up-button">UP</button>
+                            </div>
+        
+                            <div id="game-left-right-button">
+                                <button id="game-left-button">LEFT</button>
+                                <button id="game-right-button">RIGHT</button>
+                            </div>
+        
+                            <div>
+                                <button id="game-down-button">DOWN</button>
+                            </div>
+                        </div>
+                    </div>
+                <!-- END OF CANVAS -->
+            </div>
+            
         </div>
         <!-- END OF ROW -->
     </div>
