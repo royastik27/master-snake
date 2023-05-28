@@ -40,7 +40,7 @@ body {
     /* border: 5px dotted green; */
 }
 
-#game-init-menu, #game-controller-menu {
+#game-init-menu, #game-controller-menu, #game-scoreboard {
     margin-bottom: 1rem;
     padding: 0.5rem 0;
     border-radius: 1rem;
@@ -65,7 +65,38 @@ body {
 }
 
 #game-controller-menu .left-right {
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
-/* ADD MEDIA QUERY */
+#game-scoreboard {
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: gainsboro;
+}
+
+#game-scoreboard::before {
+    content: "Score:";
+}
+
+#dev-message {
+    opacity: 70%;
+    font-size: 0.8rem;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width: 767px) {
+    body {
+      background-color: lightgreen;
+    }
+
+    #game-menu {
+        margin-top: 1rem;
+    }
+
+    #game-screen, #game-menu {
+        float: none;
+        width: 100%;
+    }
+}
