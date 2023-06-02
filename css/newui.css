@@ -21,17 +21,31 @@ body {
 }
 
 #game-section {
-    display: table;
+    /* display: table; */
     margin: 1rem auto;
     /* border: 10px solid blue; */
 }
 
 #game-screen {
-    width: 60%;
+    display: flex;
+    flex-direction: column;
     float: left;
     margin-right: 1rem;
     background-color: #6C4B4B;
-    border: 1px solid black;
+    border: 0.2rem solid black;
+}
+
+.game-row {
+    display: flex;
+    justify-content: center;
+    /* margin-bottom: 0; */
+    /* border: 1px solid blue; */
+}
+
+.game-col {
+    width: 1.2rem;
+    height: 1.2rem;
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3);  
 }
 
 #game-menu {
@@ -54,6 +68,10 @@ body {
 
 #game-init-menu button {
     margin: 0rem 0.5rem;
+}
+
+#game-select-speed {
+    font-weight: bold;
 }
 
 #game-controller-menu {
@@ -95,7 +113,11 @@ body {
         margin-top: 1rem;
     }
 
-    #game-screen, #game-menu {
+    #game-screen {
+        float: none;
+    }
+
+    #game-menu {
         float: none;
         width: 100%;
     }
